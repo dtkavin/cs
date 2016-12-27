@@ -9,9 +9,9 @@ public class DynArray<T> {
      * 动态数组增长倍率
      */
     private int increaseRate=2;
-    private final int INITLENGTH=2;
+    private final int INIT_LENGTH=8;
     private int index=0;
-    private int max=INITLENGTH;
+    private int max=INIT_LENGTH;
 
     private T[] array=(T[])new Object[max];
 
