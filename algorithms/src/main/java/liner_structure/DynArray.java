@@ -15,6 +15,10 @@ public class DynArray<T> {
 
     private T[] array=(T[])new Object[max];
 
+    /**
+     * 按顺序放置
+     * @param elem
+     */
     public synchronized void put(T elem){
         //1、 insert
         array[index++]=elem;
@@ -22,12 +26,41 @@ public class DynArray<T> {
         checkSpace();
     }
 
+    /**
+     * 提取index数据，如果没有数，则返回null
+     * @param index
+     * @return
+     */
     public synchronized T get(int index){
         T t=null;
         if(index<=max && index>=0){
             return array[index];
         }
         return t;
+    }
+
+    /**
+     * 对应位置添加,如果原来位置有数据，则覆盖
+     * @param index
+     * @param elem
+     */
+    public synchronized boolean addOrUpdate(int index,T elem){
+        if(index<0)return false;
+        if(index>=0 || index <= max){
+            array[index]=elem;
+        }else{
+
+        }
+
+        return true;
+    }
+
+    /**
+     * 删除对应数据，如果没有数，则 返回null
+     * @param index
+     */
+    public synchronized void remove(int index){
+
     }
 
     /**
